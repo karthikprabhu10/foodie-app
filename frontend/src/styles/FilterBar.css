@@ -1,0 +1,254 @@
+.filter-container {
+  position: relative;
+}
+
+/* Filter Toggle Button */
+.filter-toggle-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background: white;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1c1c1c;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  position: relative;
+}
+
+.filter-toggle-button:hover {
+  border-color: #ff6b35;
+  box-shadow: 0 4px 12px rgba(255, 107, 53, 0.2);
+  transform: translateY(-2px);
+}
+
+.filter-toggle-button.has-filters {
+  border-color: #ff6b35;
+  background: #fff5f2;
+}
+
+.filter-badge {
+  color: #ff6b35;
+  font-size: 24px;
+  line-height: 0;
+  margin-left: -4px;
+}
+
+/* Overlay */
+.filter-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 998;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Filter Panel */
+.filter-bar {
+  position: fixed;
+  right: -400px;
+  top: 0;
+  height: 100vh;
+  width: 380px;
+  max-width: 90vw;
+  background: white;
+  box-shadow: -4px 0 20px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  transition: right 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.filter-bar.open {
+  right: 0;
+}
+
+.filter-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  border-bottom: 2px solid #f0f0f0;
+  background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
+  color: white;
+}
+
+.filter-title {
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.close-filter-button {
+  background: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+  border-radius: 50%;
+}
+
+.close-filter-button:hover {
+  transform: scale(1.1);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.filter-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+}
+
+.filter-section {
+  margin-bottom: 24px;
+}
+
+.filter-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.filter-select {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 15px;
+  outline: none;
+  cursor: pointer;
+  background: white;
+  transition: border-color 0.3s ease;
+}
+
+.filter-select:focus {
+  border-color: #ff6b35;
+}
+
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.radio-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-size: 15px;
+  color: #555;
+  padding: 8px;
+  border-radius: 6px;
+  transition: background 0.2s ease;
+}
+
+.radio-label:hover {
+  background: #f8f8f8;
+}
+
+.radio-label input[type="radio"] {
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  accent-color: #ff6b35;
+}
+
+.filter-buttons {
+  display: flex;
+  gap: 12px;
+  padding: 20px;
+  border-top: 2px solid #f0f0f0;
+  background: #fafafa;
+}
+
+.apply-button,
+.reset-button {
+  flex: 1;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.apply-button {
+  background: #ff6b35;
+  color: white;
+}
+
+.apply-button:hover {
+  background: #ff5722;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+}
+
+.reset-button {
+  background: white;
+  color: #555;
+  border: 2px solid #e0e0e0;
+}
+
+.reset-button:hover {
+  background: #f5f5f5;
+  border-color: #ccc;
+}
+
+/* Scrollbar Styling */
+.filter-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.filter-content::-webkit-scrollbar-track {
+  background: #f0f0f0;
+}
+
+.filter-content::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 3px;
+}
+
+.filter-content::-webkit-scrollbar-thumb:hover {
+  background: #999;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .filter-bar {
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  .filter-toggle-button {
+    width: 100%;
+    justify-content: center;
+  }
+}
