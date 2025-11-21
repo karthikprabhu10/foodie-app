@@ -4,9 +4,10 @@ import '../styles/RestaurantCard.css';
 
 interface RestaurantCardProps {
   restaurant: Restaurant;
+  onSelect?: (id: string) => void;
 }
 
-const RestaurantCard: React.FC<RestaurantCardProps> = ({ restaurant }) => {
+const RestaurantCard: React.FC<RestaurantCardProps> = ({ restaurant, onSelect }) => {
   const StarIcon = () => (
     <svg
       className="star-icon"
@@ -68,8 +69,29 @@ const RestaurantCard: React.FC<RestaurantCardProps> = ({ restaurant }) => {
     ));
   };
 
+  const handleClick = () => {
+    if (onSelect) {
+      onSelect(restaurant._id);
+    }
+  };
+  
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
+    if (!onSelect) return;
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      onSelect(restaurant._id);
+    }
+  };
+
   return (
-    <div className="restaurant-card">
+    <div
+      className="restaurant-card"
+      onClick={handleClick}
+      onKeyDown={handleKeyDown}
+      role={onSelect ? 'button' : undefined}
+      tabIndex={onSelect ? 0 : undefined}
+      aria-label={onSelect ? `View menu for ${restaurant.name}` : undefined}
+    >
       <div className="restaurant-image">
         <img src={restaurant.imageUrl} alt={restaurant.name} />
         {restaurant.isVeg && (

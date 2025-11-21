@@ -143,7 +143,7 @@ const restaurants = [
     rating: 4.7,
     priceRange: 3,
     deliveryTime: "45-55 mins",
-    imageUrl: "https://images.unsplash.com/photo-1559737558-2f5a35f4523e?w=400",
+    imageUrl: "https://unsplash.com/photos/brown-bread-on-brown-wooden-tray-N6BTNbaKZMo",
     description: "Fresh seafood prepared with exotic spices and flavors.",
     isVeg: false,
     location: "Whitefield, Bangalore"
@@ -264,7 +264,7 @@ const restaurants = [
     rating: 4.4,
     priceRange: 2,
     deliveryTime: "25-35 mins",
-    imageUrl: "https://images.unsplash.com/photo-1593030668069-d59e67c5423e?w=400",
+    imageUrl: "https://unsplash.com/photos/a-white-plate-topped-with-meatballs-and-a-salad-WVoLfiKbYBQ",
     description: "Crispy falafels and fresh Mediterranean vegetarian delights.",
     isVeg: true,
     location: "HSR Layout, Bangalore"

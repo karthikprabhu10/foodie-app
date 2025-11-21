@@ -40,6 +40,9 @@
         |-- index.css
         |-- index.tsx
         |-- logo.svg
+        |-- pages
+            |-- HomePage.tsx
+            |-- RestaurantPage.tsx
         |-- react-app-env.d.ts
         |-- reportWebVitals.ts
         |-- services
@@ -48,6 +51,7 @@
         |-- styles
             |-- FilterBar.css
             |-- RestaurantCard.css
+            |-- RestaurantPage.css
             |-- SearchBar.css
         |-- types
             |-- Restaurant.ts

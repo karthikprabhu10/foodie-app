@@ -28,3 +28,8 @@ export interface ApiResponse {
   count: number;
   data: Restaurant[];
 }
+
+export interface RestaurantDetailResponse {
+  success: boolean;
+  data: Restaurant;
+}

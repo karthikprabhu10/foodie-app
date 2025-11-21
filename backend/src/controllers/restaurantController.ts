@@ -4,7 +4,7 @@ import Restaurant from '../models/Restaurant';
 // Get all restaurants
 export const getAllRestaurants = async (req: Request, res: Response) => {
   try {
-    const restaurants = await Restaurant.find().sort({ rating: -1 });
+    const restaurants = await Restaurant.find().sort({ rating: -1 }).lean();
     
     res.status(200).json({
       success: true,
@@ -38,7 +38,7 @@ export const searchRestaurants = async (req: Request, res: Response) => {
         { cuisine: { $regex: query, $options: 'i' } },
         { description: { $regex: query, $options: 'i' } },
       ],
-    }).sort({ rating: -1 });
+    }).sort({ rating: -1 }).lean();
 
     res.status(200).json({
       success: true,
@@ -78,7 +78,7 @@ export const filterRestaurants = async (req: Request, res: Response) => {
       filter.isVeg = isVeg === 'true';
     }
 
-    const restaurants = await Restaurant.find(filter).sort({ rating: -1 });
+    const restaurants = await Restaurant.find(filter).sort({ rating: -1 }).lean();
 
     res.status(200).json({
       success: true,
@@ -97,7 +97,7 @@ export const filterRestaurants = async (req: Request, res: Response) => {
 // Get single restaurant by ID
 export const getRestaurantById = async (req: Request, res: Response) => {
   try {
-    const restaurant = await Restaurant.findById(req.params.id);
+    const restaurant = await Restaurant.findById(req.params.id).lean();
 
     if (!restaurant) {
       return res.status(404).json({
@@ -105,6 +105,10 @@ export const getRestaurantById = async (req: Request, res: Response) => {
         message: 'Restaurant not found',
       });
     }
+
+    // Log for debugging
+    console.log('Restaurant found:', restaurant.name);
+    console.log('Menu items count:', restaurant.menuItems?.length || 0);
 
     res.status(200).json({
       success: true,

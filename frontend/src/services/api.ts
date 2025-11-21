@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { ApiResponse } from '../types/Restaurant';
+import { ApiResponse, RestaurantDetailResponse, Restaurant } from '../types/Restaurant';
 
 const API_BASE_URL = 'http://localhost:5000/api';
 
@@ -39,6 +39,11 @@ export const filterRestaurants = async (filters: {
 
   const response = await api.get<ApiResponse>(`/restaurants/filter?${params.toString()}`);
   return response.data;
+};
+
+export const getRestaurantById = async (id: string): Promise<Restaurant> => {
+  const response = await api.get<RestaurantDetailResponse>(`/restaurants/${id}`);
+  return response.data.data;
 };
 
 export default api;
