@@ -18,6 +18,7 @@
         |-- server.ts
     |-- tsconfig.json
 |-- frontend
+    |-- .env.production
     |-- .gitignore
     |-- package-lock.json
     |-- package.json

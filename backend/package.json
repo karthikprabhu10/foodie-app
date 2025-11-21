@@ -1,17 +1,24 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-"scripts": {
-  "dev": "nodemon src/server.ts",
-  "build": "tsc",
-  "start": "node dist/server.js",
-  "seed": "ts-node src/seed/seedRestaurants.ts",
-  "seed-menu": "ts-node src/seed/seedRestaurantsWithMenu.ts",
-  "test": "echo \"Error: no test specified\" && exit 1"
-},
-
+  "description": "Foodie Web App Backend",
+  "main": "dist/server.js",
+  "scripts": {
+    "dev": "nodemon src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "seed": "ts-node src/seed/seedRestaurants.ts",
+    "seed-menu": "ts-node src/seed/seedRestaurantsWithMenu.ts"
+  },
+    "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "mongoose": "^8.9.3"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
